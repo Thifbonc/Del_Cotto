@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carte Mentale — Santé Mondiale</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #F7F5F0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  h1 { text-align: center; padding: 28px 20px 6px; font-size: 1.7rem; font-weight: 800; color: #1a1a1a; letter-spacing: -.02em; }
+  .subtitle { text-align: center; color: #888; font-size: .85rem; margin-bottom: 18px; }
+  .hint { text-align: center; font-size: .78rem; color: #aaa; margin-bottom: 10px; }
+  #wrap { width: 100%; overflow-x: auto; padding: 10px 0 40px; }
+  svg { display: block; margin: 0 auto; }
+  .branch-line { stroke-width:3; fill:none; opacity:0.55; }
+  .sub-line { stroke-width:1.8; fill:none; opacity:0.4; }
+  .leaf-line { stroke-width:1.2; fill:none; opacity:0.3; }
+  .bnode, .snode, .lnode { cursor:pointer; }
+  .bnode ellipse, .bnode rect, .snode rect, .lnode rect { transition: opacity .15s; }
+  .bnode:hover ellipse, .bnode:hover rect, .snode:hover rect, .lnode:hover rect { opacity: .75; }
+  .legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 20px; padding: 20px 40px 40px; }
+  .leg { display: flex; align-items: center; gap: 7px; font-size: .78rem; color: #555; }
+  .leg-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<h1>Grands Enjeux de la Santé Mondiale</h1>
+<p class="subtitle">Carte mentale · Sources : OMS, OCDE, Banque Mondiale, The Lancet (2024)</p>
+<p class="hint">Cliquez sur un nœud pour en savoir plus</p>
+
+<div id="wrap">
+<svg width="1400" height="1100" viewBox="0 0 1400 1100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/>
+  </marker>
+</defs>
+
+<!-- CENTRE -->
+<ellipse cx="700" cy="550" rx="95" ry="56" fill="#534AB7" stroke="#3C3489" stroke-width="2.5"/>
+<text x="700" y="543" text-anchor="middle" font-size="17" font-weight="800" fill="#EEEDFE" font-family="'Segoe UI',sans-serif">Santé mondiale</text>
+<text x="700" y="564" text-anchor="middle" font-size="12" fill="#CECBF6" font-family="'Segoe UI',sans-serif">Grands enjeux</text>
+
+<!-- ===== B1 : MALADIES (haut-gauche) ===== -->
+<path class="branch-line" stroke="#534AB7" d="M 636 510 Q 480 420 390 330"/>
+<g class="bnode" onclick="alert('MALADIES & ÉPIDÉMIES\n\n• Maladies infectieuses : VIH (39M), TB (1,3M morts/an), Paludisme (620k morts/an, 77% enfants)\n• Résistance aux antimicrobiens (RAM) : 1,27M morts/an, projection 10M/an en 2050\n• Maladies non transmissibles : 74% de la mortalité mondiale — cardio (17,9M), cancer (10M), diabète (537M)\n• Pandémies : COVID-19 (15-20M morts réels), H5N1, risque futur selon OMS')">
+  <rect x="293" y="300" width="194" height="54" rx="27" fill="#7F77DD" stroke="#534AB7" stroke-width="2"/>
+  <text x="390" y="321" text-anchor="middle" font-size="14" font-weight="700" fill="#EEEDFE" font-family="'Segoe UI',sans-serif">Maladies</text>
+  <text x="390" y="341" text-anchor="middle" font-size="11" fill="#CECBF6" font-family="'Segoe UI',sans-serif">&amp; épidémies</text>
+</g>
+<path class="sub-line" stroke="#7F77DD" d="M 293 323 Q 215 292 150 268"/>
+<g class="snode" onclick="alert('MALADIES INFECTIEUSES\nVIH : 39 millions de porteurs, 630k morts/an, 75% en Afrique subsaharienne\nTuberculose : 1,3M morts/an, multirésistances (MDR-TB)\nPaludisme : 249M cas/an, 620k morts, 77% enfants')">
+  <rect x="55" y="250" width="158" height="46" rx="9" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1.2"/>
+  <text x="134" y="269" text-anchor="middle" font-size="12" font-weight="700" fill="#3C3489" font-family="'Segoe UI',sans-serif">Infectieuses</text>
+  <text x="134" y="286" text-anchor="middle" font-size="10" fill="#534AB7" font-family="'Segoe UI',sans-serif">VIH · TB · paludisme</text>
+</g>
+<path class="leaf-line" stroke="#AFA9EC" d="M 55 261 Q 18 238 14 212"/>
+<g class="lnode" onclick="alert('RÉSISTANCE AUX ANTIMICROBIENS\n1,27 million de morts/an attribuables directement\nProjection : 10 millions/an d\'ici 2050 (dépasse le cancer)\nCauses : surconsommation antibiotiques, élevage industriel\nTrès peu de nouveaux antibiotiques en développement')">
+  <rect x="0" y="196" width="160" height="30" rx="7" fill="#CECBF6" stroke="#AFA9EC" stroke-width="1"/>
+  <text x="80" y="215" text-anchor="middle" font-size="10" fill="#26215C" font-family="'Segoe UI',sans-serif">RAM — 10M morts/2050</text>
+</g>
+<path class="sub-line" stroke="#7F77DD" d="M 293 340 Q 215 358 150 365"/>
+<g class="snode" onclick="alert('MALADIES NON TRANSMISSIBLES\n74% de la mortalité mondiale\nMaladies cardiovasculaires : 17,9M morts/an\nCancers : 10M morts/an, dépistage insuffisant dans les PED\nDiabète : 537M personnes — lié à obésité et sédentarité\nObésité : 1 milliard d\'obèses dans le monde (2022)')">
+  <rect x="55" y="344" width="160" height="46" rx="9" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1.2"/>
+  <text x="135" y="363" text-anchor="middle" font-size="12" font-weight="700" fill="#3C3489" font-family="'Segoe UI',sans-serif">Non transmissibles</text>
+  <text x="135" y="380" text-anchor="middle" font-size="10" fill="#534AB7" font-family="'Segoe UI',sans-serif">74% mortalité mondiale</text>
+</g>
+<path class="sub-line" stroke="#7F77DD" d="M 332 300 Q 290 230 255 192"/>
+<g class="snode" onclick="alert('PANDÉMIES\nCOVID-19 : 7M officiels, 15-20M réels (surmortalité)\nInégalités vaccinales : Afrique 3% vaccinés fin 2021\nH5N1 : virus à très fort potentiel pandémique\nOMS : pandémie de même ampleur probable dans 20 ans')">
+  <rect x="160" y="168" width="162" height="46" rx="9" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1.2"/>
+  <text x="241" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="#3C3489" font-family="'Segoe UI',sans-serif">Pandémies</text>
+  <text x="241" y="204" text-anchor="middle" font-size="10" fill="#534AB7" font-family="'Segoe UI',sans-serif">COVID · H5N1 · futur</text>
+</g>
+
+<!-- ===== B2 : SYSTEMES DE SANTE (haut) ===== -->
+<path class="branch-line" stroke="#0F6E56" d="M 700 494 Q 700 400 700 314"/>
+<g class="bnode" onclick="alert('SYSTÈMES DE SANTÉ\n\n• Couverture santé universelle : 4,5 Mds sans soins essentiels\n• Pénurie : 18 millions de soignants manquants d\'ici 2030\n• Financement : moins de 50$/hab dans pays pauvres vs 8000$ pays riches\n• Burnout : 47% des soignants post-COVID\n• Soins primaires : seulement 3% des dépenses vont à la prévention')">
+  <rect x="598" y="285" width="204" height="54" rx="27" fill="#1D9E75" stroke="#0F6E56" stroke-width="2"/>
+  <text x="700" y="306" text-anchor="middle" font-size="14" font-weight="700" fill="#E1F5EE" font-family="'Segoe UI',sans-serif">Systèmes de santé</text>
+  <text x="700" y="326" text-anchor="middle" font-size="11" fill="#9FE1CB" font-family="'Segoe UI',sans-serif">Accès &amp; couverture</text>
+</g>
+<path class="sub-line" stroke="#1D9E75" d="M 638 285 Q 575 232 528 204"/>
+<g class="snode" onclick="alert('COUVERTURE SANTÉ UNIVERSELLE (CSU)\nObjectif ODD 3.8 : CSU d\'ici 2030\n4,5 milliards sans accès aux soins essentiels\n2 milliards face à des dépenses catastrophiques\nModèles : Bismarck (cotisations), Beveridge (État), mixte')">
+  <rect x="415" y="183" width="166" height="46" rx="9" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+  <text x="498" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#085041" font-family="'Segoe UI',sans-serif">Couverture univ.</text>
+  <text x="498" y="219" text-anchor="middle" font-size="10" fill="#0F6E56" font-family="'Segoe UI',sans-serif">4,5 Mds sans soins</text>
+</g>
+<path class="sub-line" stroke="#1D9E75" d="M 700 285 Q 700 232 700 204"/>
+<g class="snode" onclick="alert('PÉNURIE DE PERSONNEL SOIGNANT\n18 millions de soignants manquants d\'ici 2030 (OMS)\nConcentrés en Afrique et Asie du Sud\nFuite des cerveaux : médecins formés dans PED migrent vers pays riches\nBurnout : 47% des soignants post-COVID\nFemmes = 70% des effectifs mais sous-représentées au leadership')">
+  <rect x="607" y="183" width="186" height="46" rx="9" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+  <text x="700" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#085041" font-family="'Segoe UI',sans-serif">Pénurie soignants</text>
+  <text x="700" y="219" text-anchor="middle" font-size="10" fill="#0F6E56" font-family="'Segoe UI',sans-serif">18 millions manquants</text>
+</g>
+<path class="sub-line" stroke="#1D9E75" d="M 762 285 Q 820 232 868 204"/>
+<g class="snode" onclick="alert('FINANCEMENT DE LA SANTÉ\nPays pauvres : moins de 50$/habitant/an\nOMS recommande minimum 86$/habitant\nPays riches : 5 000 à 10 000$/habitant/an\nCorruption dans les systèmes publics\nFonds Mondial, GAVI, CEPI, OMS — sous-financés chroniquement')">
+  <rect x="828" y="183" width="166" height="46" rx="9" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.2"/>
+  <text x="911" y="202" text-anchor="middle" font-size="12" font-weight="700" fill="#085041" font-family="'Segoe UI',sans-serif">Financement</text>
+  <text x="911" y="219" text-anchor="middle" font-size="10" fill="#0F6E56" font-family="'Segoe UI',sans-serif">50$ vs 8 000$/hab</text>
+</g>
+<path class="leaf-line" stroke="#5DCAA5" d="M 700 183 Q 700 148 700 130"/>
+<g class="lnode" onclick="alert('ODD 3 — Objectif 2030\nAssurer la santé et le bien-être pour tous\nSur 13 cibles, aucune n\'est en bonne voie globalement\nTraité international sur les pandémies en négociation à l\'OMS')">
+  <rect x="618" y="113" width="164" height="28" rx="7" fill="#9FE1CB" stroke="#5DCAA5" stroke-width="1"/>
+  <text x="700" y="131" text-anchor="middle" font-size="10" fill="#04342C" font-family="'Segoe UI',sans-serif">ODD 3 · Objectif 2030</text>
+</g>
+
+<!-- ===== B3 : INEGALITES (haut-droit) ===== -->
+<path class="branch-line" stroke="#993C1D" d="M 764 510 Q 900 420 1012 330"/>
+<g class="bnode" onclick="alert('INÉGALITÉS D\'ACCÈS AUX SOINS\n\n• Espérance de vie : 83 ans au Japon vs 53 ans en RCA\n• 700M personnes < 2,15$/jour (pauvreté extrême)\n• Mortalité maternelle : 287 000 morts/an, 95% évitables\n• 100M plongés dans la pauvreté par les frais de santé chaque année\n• Déserts médicaux : 6M sans médecin traitant en France')">
+  <rect x="970" y="300" width="190" height="54" rx="27" fill="#D85A30" stroke="#993C1D" stroke-width="2"/>
+  <text x="1065" y="321" text-anchor="middle" font-size="14" font-weight="700" fill="#FAECE7" font-family="'Segoe UI',sans-serif">Inégalités d'accès</text>
+  <text x="1065" y="341" text-anchor="middle" font-size="11" fill="#F5C4B3" font-family="'Segoe UI',sans-serif">Nord / Sud · Genre</text>
+</g>
+<path class="sub-line" stroke="#D85A30" d="M 1160 322 Q 1226 290 1252 268"/>
+<g class="snode" onclick="alert('INÉGALITÉS GÉOGRAPHIQUES\nEspérance de vie : 83 ans (Japon) vs 53 ans (RCA)\nUn enfant en Afrique subsaharienne a 14× plus de risques de mourir avant 5 ans qu\'en Europe\nAccès aux soins spécialisés quasi inexistant dans les zones rurales des PED')">
+  <rect x="1205" y="248" width="162" height="46" rx="9" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="1286" y="267" text-anchor="middle" font-size="12" font-weight="700" fill="#712B13" font-family="'Segoe UI',sans-serif">Géographiques</text>
+  <text x="1286" y="284" text-anchor="middle" font-size="10" fill="#993C1D" font-family="'Segoe UI',sans-serif">53 vs 83 ans esp. vie</text>
+</g>
+<path class="sub-line" stroke="#D85A30" d="M 1130 300 Q 1188 237 1215 197"/>
+<g class="snode" onclick="alert('MORTALITÉ MATERNELLE\n287 000 décès maternels par an\n95% sont évitables\n70% surviennent en Afrique subsaharienne\nCauses : hémorragies, infections, hypertension, avortements non sécurisés\nLié au manque de personnel formé et d\'accès aux soins obstétricaux')">
+  <rect x="1150" y="174" width="190" height="46" rx="9" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="1245" y="193" text-anchor="middle" font-size="12" font-weight="700" fill="#712B13" font-family="'Segoe UI',sans-serif">Mortalité maternelle</text>
+  <text x="1245" y="210" text-anchor="middle" font-size="10" fill="#993C1D" font-family="'Segoe UI',sans-serif">287 000 morts/an</text>
+</g>
+<path class="sub-line" stroke="#D85A30" d="M 1160 346 Q 1226 360 1252 372"/>
+<g class="snode" onclick="alert('DÉSERTS MÉDICAUX\nMême dans les pays riches :\nFrance : 6 millions de personnes sans médecin traitant\nÉtats-Unis : 80 millions en zones médicalement sous-dotées\nVieillissement des médecins ruraux non remplacés\nTélémédecine : réponse partielle mais fracture numérique')">
+  <rect x="1205" y="352" width="190" height="46" rx="9" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="1300" y="371" text-anchor="middle" font-size="12" font-weight="700" fill="#712B13" font-family="'Segoe UI',sans-serif">Déserts médicaux</text>
+  <text x="1300" y="388" text-anchor="middle" font-size="10" fill="#993C1D" font-family="'Segoe UI',sans-serif">6M sans med. traitant FR</text>
+</g>
+
+<!-- ===== B4 : SANTE MENTALE (droite) ===== -->
+<path class="branch-line" stroke="#993556" d="M 793 550 Q 920 550 1010 550"/>
+<g class="bnode" onclick="alert('SANTÉ MENTALE\n\n• 1 milliard de personnes touchées (OMS 2022)\n• 14% de la charge mondiale de morbidité\n• Seulement 2% des budgets santé alloués\n• 2/3 des malades ne consultent jamais (stigmatisation)\n• COVID a provoqué +25% de dépression et anxiété en 2020')">
+  <rect x="970" y="523" width="190" height="54" rx="27" fill="#D4537E" stroke="#993556" stroke-width="2"/>
+  <text x="1065" y="544" text-anchor="middle" font-size="14" font-weight="700" fill="#FBEAF0" font-family="'Segoe UI',sans-serif">Santé mentale</text>
+  <text x="1065" y="564" text-anchor="middle" font-size="11" fill="#F4C0D1" font-family="'Segoe UI',sans-serif">Grande cause négligée</text>
+</g>
+<path class="sub-line" stroke="#D4537E" d="M 1160 536 Q 1226 512 1252 494"/>
+<g class="snode" onclick="alert('DÉPRESSION\n280 millions de personnes\n1ère cause mondiale d\'invalidité\nAggravée par isolement, précarité, traumatismes\nCOVID-19 : +25% de cas en 2020 (OMS)\nTroubles anxieux comorbides : 301 millions de personnes')">
+  <rect x="1205" y="473" width="162" height="46" rx="9" fill="#FBEAF0" stroke="#D4537E" stroke-width="1.2"/>
+  <text x="1286" y="492" text-anchor="middle" font-size="12" font-weight="700" fill="#72243E" font-family="'Segoe UI',sans-serif">Dépression</text>
+  <text x="1286" y="509" text-anchor="middle" font-size="10" fill="#993556" font-family="'Segoe UI',sans-serif">280M · 1re cause invalidité</text>
+</g>
+<path class="sub-line" stroke="#D4537E" d="M 1160 550 Q 1235 550 1254 550"/>
+<g class="snode" onclick="alert('SUICIDE\n700 000 morts par suicide par an\n2ème cause de décès chez les 15-29 ans\n20 tentatives pour chaque décès\n77% surviennent dans les pays à revenu faible et intermédiaire\nHommes 2× plus que les femmes\nLien fort avec alcool, isolement et accès aux armes')">
+  <rect x="1205" y="530" width="162" height="46" rx="9" fill="#FBEAF0" stroke="#D4537E" stroke-width="1.2"/>
+  <text x="1286" y="549" text-anchor="middle" font-size="12" font-weight="700" fill="#72243E" font-family="'Segoe UI',sans-serif">Suicide</text>
+  <text x="1286" y="566" text-anchor="middle" font-size="10" fill="#993556" font-family="'Segoe UI',sans-serif">700 000 morts/an</text>
+</g>
+<path class="sub-line" stroke="#D4537E" d="M 1160 568 Q 1226 592 1252 610"/>
+<g class="snode" onclick="alert('JEUNES &amp; RÉSEAUX SOCIAUX\nHausse alarmante des troubles chez les adolescents post-2012\nCorrélation avec l\'arrivée du smartphone (travaux de Jonathan Haidt)\nCyberharcèlement, image corporelle, FOMO\nHospitalisations pour automutilation filles 10-14 ans ×3 aux USA (2009-2019)\nEnjeu : responsabilité des plateformes numériques')">
+  <rect x="1205" y="592" width="162" height="46" rx="9" fill="#FBEAF0" stroke="#D4537E" stroke-width="1.2"/>
+  <text x="1286" y="611" text-anchor="middle" font-size="12" font-weight="700" fill="#72243E" font-family="'Segoe UI',sans-serif">Jeunes &amp; réseaux</text>
+  <text x="1286" y="628" text-anchor="middle" font-size="10" fill="#993556" font-family="'Segoe UI',sans-serif">Hausse ados post-2012</text>
+</g>
+
+<!-- ===== B5 : ENVIRONNEMENT (bas-droit) ===== -->
+<path class="branch-line" stroke="#3B6D11" d="M 764 592 Q 900 680 1012 770"/>
+<g class="bnode" onclick="alert('ENVIRONNEMENT &amp; CLIMAT\n\n• Pollution de l\'air : 7 millions de morts/an (1ère cause environnementale)\n• Changement climatique : vagues de chaleur, extension des maladies vectorielles\n• Zoonoses : 60% des maladies émergentes sont d\'origine animale\n• Eau et assainissement : 2 Mds sans eau potable, 1,5M morts diarrhées/an\n• Approche recommandée : One Health')">
+  <rect x="970" y="742" width="190" height="54" rx="27" fill="#639922" stroke="#3B6D11" stroke-width="2"/>
+  <text x="1065" y="763" text-anchor="middle" font-size="14" font-weight="700" fill="#EAF3DE" font-family="'Segoe UI',sans-serif">Environnement</text>
+  <text x="1065" y="783" text-anchor="middle" font-size="11" fill="#C0DD97" font-family="'Segoe UI',sans-serif">Climat &amp; pollution</text>
+</g>
+<path class="sub-line" stroke="#639922" d="M 1118 763 Q 1188 742 1218 730"/>
+<g class="snode" onclick="alert('POLLUTION DE L\'AIR\n7 millions de morts/an (OMS) — 1ère cause environnementale de mortalité\nPollution intérieure (foyers au bois/charbon) : 4 millions\nPollution extérieure (transports, industrie) : 3 millions\nCauses : maladies cardio, AVC, cancers pulmonaires, BPCO')">
+  <rect x="1185" y="710" width="188" height="46" rx="9" fill="#EAF3DE" stroke="#639922" stroke-width="1.2"/>
+  <text x="1279" y="729" text-anchor="middle" font-size="12" font-weight="700" fill="#27500A" font-family="'Segoe UI',sans-serif">Pollution de l'air</text>
+  <text x="1279" y="746" text-anchor="middle" font-size="10" fill="#3B6D11" font-family="'Segoe UI',sans-serif">7 millions morts/an</text>
+</g>
+<path class="sub-line" stroke="#639922" d="M 1118 783 Q 1188 804 1218 818"/>
+<g class="snode" onclick="alert('ZOONOSES &amp; ONE HEALTH\n60% des maladies infectieuses émergentes sont d\'origine animale\nDéforestation → contact humains/faune sauvage → spillover viral\nExemples : COVID-19, Ebola, SARS, MERS, VIH, grippe aviaire\nApproche One Health : santé humaine + animale + environnementale\nExtension du moustique Aedes : dengue +50% en 10 ans')">
+  <rect x="1185" y="800" width="188" height="46" rx="9" fill="#EAF3DE" stroke="#639922" stroke-width="1.2"/>
+  <text x="1279" y="819" text-anchor="middle" font-size="12" font-weight="700" fill="#27500A" font-family="'Segoe UI',sans-serif">Zoonoses</text>
+  <text x="1279" y="836" text-anchor="middle" font-size="10" fill="#3B6D11" font-family="'Segoe UI',sans-serif">60% maladies émergentes</text>
+</g>
+<path class="sub-line" stroke="#639922" d="M 1060 796 Q 1072 856 1076 882"/>
+<g class="snode" onclick="alert('EAU &amp; ASSAINISSEMENT (WASH)\n2 milliards sans eau potable sûre\n3,6 milliards sans assainissement adapté\nMaladies diarrhéiques : 1,5M morts/an dont 800k enfants &lt;5 ans\nCholéra, fièvre typhoïde, hépatite A\nLavage des mains = intervention la plus coût-efficace en santé publique')">
+  <rect x="990" y="864" width="188" height="46" rx="9" fill="#EAF3DE" stroke="#639922" stroke-width="1.2"/>
+  <text x="1084" y="883" text-anchor="middle" font-size="12" font-weight="700" fill="#27500A" font-family="'Segoe UI',sans-serif">Eau &amp; sanitaire</text>
+  <text x="1084" y="900" text-anchor="middle" font-size="10" fill="#3B6D11" font-family="'Segoe UI',sans-serif">2 Mds sans eau potable</text>
+</g>
+
+<!-- ===== B6 : SOCIO-ECO (bas) ===== -->
+<path class="branch-line" stroke="#854F0B" d="M 700 604 Q 700 700 700 786"/>
+<g class="bnode" onclick="alert('DÉTERMINANTS SOCIO-ÉCONOMIQUES\n\n• Nutrition : 1Md obèses + 821M sous-nutris — double fardeau\n• Modes de vie : tabac (8M/an), alcool (3M/an), sédentarité (1 adulte/4)\n• Éducation : 1 an de scolarisation = -10% mortalité infantile\n• Logement : 1Md dans des bidonvilles (slums)\n• Pauvreté : 700M &lt; 2,15$/jour')">
+  <rect x="588" y="756" width="224" height="54" rx="27" fill="#BA7517" stroke="#854F0B" stroke-width="2"/>
+  <text x="700" y="777" text-anchor="middle" font-size="14" font-weight="700" fill="#FAEEDA" font-family="'Segoe UI',sans-serif">Déterminants socio-éco</text>
+  <text x="700" y="797" text-anchor="middle" font-size="11" fill="#FAC775" font-family="'Segoe UI',sans-serif">Causes des causes</text>
+</g>
+<path class="sub-line" stroke="#BA7517" d="M 638 810 Q 575 855 538 878"/>
+<g class="snode" onclick="alert('NUTRITION\nDouble fardeau : sous-nutrition et sur-nutrition coexistent\nObésité : 1 milliard d\'obèses (2022)\nMultiplie risques diabète, cardio, cancers\nAliments ultra-transformés : 60% des apports dans pays riches\nSous-nutrition : 821M souffrent de la faim\nCarences (fer, vitamine A, iode) : 2 milliards de personnes')">
+  <rect x="415" y="860" width="188" height="46" rx="9" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2"/>
+  <text x="509" y="879" text-anchor="middle" font-size="12" font-weight="700" fill="#633806" font-family="'Segoe UI',sans-serif">Nutrition</text>
+  <text x="509" y="896" text-anchor="middle" font-size="10" fill="#854F0B" font-family="'Segoe UI',sans-serif">1Md obèses · 821M faim</text>
+</g>
+<path class="sub-line" stroke="#BA7517" d="M 700 810 Q 700 856 700 878"/>
+<g class="snode" onclick="alert('MODES DE VIE\nTabac : 8 millions de morts/an, 1ère cause de cancer, 1,3Md de fumeurs\nAlcool : 3 millions de morts/an — cirrhose, accidents, violences\nSédentarité : 1 adulte sur 4 insuffisamment actif (4e facteur de risque)\nDrogues : 600k morts/an, crise opioïdes aux États-Unis')">
+  <rect x="606" y="860" width="188" height="46" rx="9" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2"/>
+  <text x="700" y="879" text-anchor="middle" font-size="12" font-weight="700" fill="#633806" font-family="'Segoe UI',sans-serif">Modes de vie</text>
+  <text x="700" y="896" text-anchor="middle" font-size="10" fill="#854F0B" font-family="'Segoe UI',sans-serif">Tabac 8M · alcool 3M/an</text>
+</g>
+<path class="sub-line" stroke="#BA7517" d="M 762 810 Q 820 855 858 878"/>
+<g class="snode" onclick="alert('ÉDUCATION &amp; LOGEMENT\n1 an de scolarisation supplémentaire = -10% mortalité infantile\nLittératie en santé insuffisante : ordonnances, diagnostics\nHésitation vaccinale liée à désinformation\nBidonvilles : 1 milliard de personnes en habitat précaire\nSurpeuplement → propagation TB, maladies respiratoires\nSans-abrisme : espérance de vie réduite de 30 ans')">
+  <rect x="820" y="860" width="188" height="46" rx="9" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2"/>
+  <text x="914" y="879" text-anchor="middle" font-size="12" font-weight="700" fill="#633806" font-family="'Segoe UI',sans-serif">Éducation &amp; logement</text>
+  <text x="914" y="896" text-anchor="middle" font-size="10" fill="#854F0B" font-family="'Segoe UI',sans-serif">Littératie en santé</text>
+</g>
+
+<!-- ===== B7 : INNOVATION (bas-gauche) ===== -->
+<path class="branch-line" stroke="#185FA5" d="M 636 592 Q 490 680 390 770"/>
+<g class="bnode" onclick="alert('INNOVATION &amp; RECHERCHE\n\n• IA médicale : dépasse radiologues pour cancer du sein, AlphaFold révolutionne la biologie\n• Brevets pharmaceutiques : protection 20 ans, accès inégal aux génériques\n• Maladies négligées : seulement 1,3% des nouveaux médicaments leur sont dédiés\n• Vaccins ARNm : COVID en 11 mois, promesse cancer/VIH\n• Télémédecine : mais fracture numérique (2,7Mds sans internet)')">
+  <rect x="238" y="742" width="204" height="54" rx="27" fill="#378ADD" stroke="#185FA5" stroke-width="2"/>
+  <text x="340" y="763" text-anchor="middle" font-size="14" font-weight="700" fill="#E6F1FB" font-family="'Segoe UI',sans-serif">Innovation</text>
+  <text x="340" y="783" text-anchor="middle" font-size="11" fill="#B5D4F4" font-family="'Segoe UI',sans-serif">IA · vaccins · accès</text>
+</g>
+<path class="sub-line" stroke="#378ADD" d="M 238 763 Q 162 742 120 728"/>
+<g class="snode" onclick="alert('IA MÉDICALE\nIA dépasse les radiologues pour détection cancer du sein (Google/Nature 2020)\nDétection rétinopathie diabétique sans ophtalmologue\nAlphaFold (DeepMind) : révolutionne la compréhension des protéines\nRéduction R&amp;D de 10 ans à 2-3 ans pour certaines molécules\nRisque : biais algorithmiques excluant certaines populations')">
+  <rect x="0" y="710" width="170" height="46" rx="9" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="85" y="729" text-anchor="middle" font-size="12" font-weight="700" fill="#0C447C" font-family="'Segoe UI',sans-serif">IA médicale</text>
+  <text x="85" y="746" text-anchor="middle" font-size="10" fill="#185FA5" font-family="'Segoe UI',sans-serif">Diagnostic · AlphaFold</text>
+</g>
+<path class="sub-line" stroke="#378ADD" d="M 278 796 Q 232 840 210 865"/>
+<g class="snode" onclick="alert('BREVETS &amp; GÉNÉRIQUES\nProtection brevets : 20 ans — empêche les génériques bon marché\nScandal hépatite C : 80 000$ aux USA vs 300$ en Inde (générique)\nAccords TRIPS à l\'OMC\nMaladies négligées : 20% charge mondiale, seulement 1,3% des médicaments développés\nFonds mondial a sauvé 59 millions de vies depuis 2002')">
+  <rect x="72" y="848" width="188" height="46" rx="9" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="166" y="867" text-anchor="middle" font-size="12" font-weight="700" fill="#0C447C" font-family="'Segoe UI',sans-serif">Brevets &amp; génériques</text>
+  <text x="166" y="884" text-anchor="middle" font-size="10" fill="#185FA5" font-family="'Segoe UI',sans-serif">Accès inégal aux meds</text>
+</g>
+<path class="sub-line" stroke="#378ADD" d="M 340 796 Q 340 848 340 868"/>
+<g class="snode" onclick="alert('VACCINS ARNm\nCOVID-19 : vaccin développé en 11 mois (Pfizer/Moderna)\nPromesse thérapeutique : cancer, VIH, tuberculose\nGAVI a vacciné 1 milliard d\'enfants depuis 2000\nNationalisme vaccinal (hoarding) observé pendant COVID\nInégalités : Afrique 3% vaccinée fin 2021')">
+  <rect x="240" y="848" width="200" height="46" rx="9" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="340" y="867" text-anchor="middle" font-size="12" font-weight="700" fill="#0C447C" font-family="'Segoe UI',sans-serif">Vaccins ARNm</text>
+  <text x="340" y="884" text-anchor="middle" font-size="10" fill="#185FA5" font-family="'Segoe UI',sans-serif">COVID · cancer · VIH</text>
+</g>
+
+<!-- ===== B8 : GOUVERNANCE (gauche) ===== -->
+<path class="branch-line" stroke="#A32D2D" d="M 607 550 Q 480 550 393 550"/>
+<g class="bnode" onclick="alert('GOUVERNANCE MONDIALE DE LA SANTÉ\n\n• OMS : 194 États, budget de seulement ~6 Mds$/an\n• Dépend à 80% de contributions volontaires (influence Gates Foundation etc.)\n• Conflits : 2 Mds de personnes en zones de guerre, destruction d\'hôpitaux\n• APD santé : ~40 Mds$/an — insuffisant\n• Traité mondial sur les pandémies en négociation depuis 2021')">
+  <rect x="195" y="523" width="202" height="54" rx="27" fill="#E24B4A" stroke="#A32D2D" stroke-width="2"/>
+  <text x="296" y="544" text-anchor="middle" font-size="14" font-weight="700" fill="#FCEBEB" font-family="'Segoe UI',sans-serif">Gouvernance</text>
+  <text x="296" y="564" text-anchor="middle" font-size="11" fill="#F7C1C1" font-family="'Segoe UI',sans-serif">OMS · conflits · aide</text>
+</g>
+<path class="sub-line" stroke="#E24B4A" d="M 195 536 Q 118 512 88 496"/>
+<g class="snode" onclick="alert('OMS &amp; SES LIMITES\n194 États membres\nBudget annuel : seulement ~6 milliards de dollars\n(moins que le budget d\'un grand hôpital américain)\n80% de contributions volontaires → influence des donateurs privés\nCritiquée pour gestion tardive COVID-19\nRéforme en cours du Règlement Sanitaire International (RSI)')">
+  <rect x="0" y="476" width="160" height="46" rx="9" fill="#FCEBEB" stroke="#E24B4A" stroke-width="1.2"/>
+  <text x="80" y="495" text-anchor="middle" font-size="12" font-weight="700" fill="#791F1F" font-family="'Segoe UI',sans-serif">OMS &amp; limites</text>
+  <text x="80" y="512" text-anchor="middle" font-size="10" fill="#A32D2D" font-family="'Segoe UI',sans-serif">Budget 6 Mds$/an</text>
+</g>
+<path class="sub-line" stroke="#E24B4A" d="M 195 550 Q 118 550 88 550"/>
+<g class="snode" onclick="alert('CONFLITS &amp; CRISES HUMANITAIRES\n2 milliards de personnes en zones de conflits\nDestruction d\'hôpitaux (Syrie, Gaza, Ukraine)\nEffondrement des chaînes d\'approvisionnement en médicaments\nCholéra au Yémen : 2,5M de cas depuis 2016 — pire crise de l\'histoire moderne\nRéfugiés : accès aux soins quasi inexistant')">
+  <rect x="0" y="530" width="160" height="46" rx="9" fill="#FCEBEB" stroke="#E24B4A" stroke-width="1.2"/>
+  <text x="80" y="549" text-anchor="middle" font-size="12" font-weight="700" fill="#791F1F" font-family="'Segoe UI',sans-serif">Conflits &amp; crises</text>
+  <text x="80" y="566" text-anchor="middle" font-size="10" fill="#A32D2D" font-family="'Segoe UI',sans-serif">2 Mds en zone de guerre</text>
+</g>
+<path class="sub-line" stroke="#E24B4A" d="M 195 568 Q 118 592 88 610"/>
+<g class="snode" onclick="alert('AIDE INTERNATIONALE (APD)\nAPD santé mondiale : ~40 milliards $/an — insuffisant\nObjectif ONU : 0,7% du RNB consacré à l\'aide\nPeu d\'États atteignent cet objectif (Suède, Luxembourg, Norvège)\nRisque de dépendance à l\'aide qui fragilise les systèmes locaux\nFonds Mondial : 59 millions de vies sauvées depuis 2002')">
+  <rect x="0" y="594" width="160" height="46" rx="9" fill="#FCEBEB" stroke="#E24B4A" stroke-width="1.2"/>
+  <text x="80" y="613" text-anchor="middle" font-size="12" font-weight="700" fill="#791F1F" font-family="'Segoe UI',sans-serif">Aide internationale</text>
+  <text x="80" y="630" text-anchor="middle" font-size="10" fill="#A32D2D" font-family="'Segoe UI',sans-serif">APD 40 Mds$ insuffisant</text>
+</g>
+
+</svg>
+</div>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:#7F77DD"></div>Maladies &amp; épidémies</div>
+  <div class="leg"><div class="leg-dot" style="background:#1D9E75"></div>Systèmes de santé</div>
+  <div class="leg"><div class="leg-dot" style="background:#D85A30"></div>Inégalités d'accès</div>
+  <div class="leg"><div class="leg-dot" style="background:#D4537E"></div>Santé mentale</div>
+  <div class="leg"><div class="leg-dot" style="background:#639922"></div>Environnement &amp; climat</div>
+  <div class="leg"><div class="leg-dot" style="background:#BA7517"></div>Déterminants socio-éco.</div>
+  <div class="leg"><div class="leg-dot" style="background:#378ADD"></div>Innovation &amp; recherche</div>
+  <div class="leg"><div class="leg-dot" style="background:#E24B4A"></div>Gouvernance mondiale</div>
+</div>
+
+<div style="background:#534AB7;color:#EEEDFE;margin:0 40px 40px;border-radius:14px;padding:28px 32px;">
+  <div style="font-size:1.1rem;font-weight:700;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.25);padding-bottom:10px;">Conclusion — Quel est le principal enjeu de la santé mondiale aujourd'hui ?</div>
+  <p style="font-size:.9rem;line-height:1.75;opacity:.92;">Parmi l'ensemble des enjeux analysés, les <strong>inégalités d'accès aux soins</strong> apparaissent comme le défi central de la santé mondiale. Elles constituent la toile de fond qui conditionne tous les autres : une pandémie ne dévaste pas les populations de la même façon selon qu'elles vivent en Suède ou en République démocratique du Congo ; une maladie évitable ne tue que ceux qui n'ont pas accès aux vaccins ; une innovation médicale ne profite qu'aux personnes capables de se la payer.<br><br>
+  Ces inégalités sont à la fois géographiques, sociales, de genre, et générationnelles. Elles s'enracinent dans des déterminants profonds : pauvreté, éducation, environnement, gouvernance. <strong>Lutter contre elles suppose une volonté politique mondiale</strong> — réformer les brevets pharmaceutiques, renforcer les systèmes de santé des pays à revenu faible, financer durablement l'OMS. Sans équité, aucun progrès scientifique ne pourra garantir la santé pour tous, ambition fondatrice de l'OMS depuis 1948.</p>
+</div>
+
+</body>
+</html>
